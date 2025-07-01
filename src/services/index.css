@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+.Primary-Color{
+    background-color: #154195;
+}
+.Primary-Color:hover{
+    background-color: #0B275C;
+}
+
+.text-color {
+    color: #154195;
+}
+
+.text-color:hover{
+    color: #081d47;
+
+}
+
+.text-color-picto {
+    color: #FF6F61;
+}
+
+.text-color-dotted {
+    color: #FF6F61;
+}
+
+.text-color-picto:hover {
+    color: #99433b;
+}
+
+.bg-color-gray:hover {
+    background-color: #D9D9D9;
+}

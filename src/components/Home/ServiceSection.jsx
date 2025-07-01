@@ -1,0 +1,174 @@
+import React, {useEffect, useState} from "react";
+import BoutiqueHome from '../../assets/image/Boutique-home.png';
+import FournisseurHome from '../../assets/image/Fournisseur-home.png';
+import ProduitHome from '../../assets/image/produit-home.png';
+import ButtonConnexion from '../Button/ButtonConnexion';
+import imageProduit from '../../assets/image/produit-home.png';
+import imageBoutique from '../../assets/image/Boutique-home.png';
+import imageFournisseur from '../../assets/image/Fournisseur-home.png';
+
+
+const ServiceSection = () => {
+
+    const [showCard, setShowCard] = useState("boutique");
+    const handleProject = (category) => {
+        setShowCard(category.toLowerCase());
+    };
+
+    return (
+        <>
+            <section className="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] dark:bg-dark">
+                <div className="container mx-auto">
+                    <div className="w-full flex flex-wrap justify-center">
+                        <div className="w-full px-4 flex flex-wrap justify-center items-center">
+                            <ul className="flex flex-wrap justify-center mb-12 space-x-1 gap-20 flex-row">
+                                <li className="mb-1 basis-55 flex flex-wrap justify-center items-start items-center">
+                                    <button
+                                        onClick={() => handleProject("Produit")}
+                                        className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                                            showCard === "Produit"
+                                                ? "activeClasses bg-primary "
+                                                : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                                        }`}
+                                    >
+                                        Produit
+                                    </button>
+                                    <div>
+                                        <button type="button" onClick={() => handleProject("Produit")}
+                                                className={`${
+                                                    showCard === "produit"
+                                                        ? "activeClasses bg-primary border-b-4 border-dotted text-color-dotted w-65 p-2"
+                                                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white "
+                                                }`}>
+                                            <img className="" src={imageProduit} alt=""/>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li className="mb-1 basis-55 text-center">
+                                    <button
+                                        onClick={() => handleProject("Boutique")}
+                                        className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                                            showCard === "Boutique"
+                                                ? "activeClasses bg-primary"
+                                                : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                                        }`}
+                                    >
+                                        Boutique
+                                    </button>
+                                    <div>
+                                        <button type="button" onClick={() => handleProject("boutique")} className={`${
+                                            showCard === "boutique"
+                                                ? "activeClasses bg-primary border-b-4 border-dotted text-color-dotted w-58"
+                                                : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                                        }`}>
+                                            <img className={`${
+                                                showCard === "boutique"
+                                                    ? "activeClasses bg-primary"
+                                                    : "inactiveClasses text-body-color  dark:text-dark-6 hover:bg-primary hover:text-white"
+                                            }`} src={imageBoutique} alt=""/>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li className="mb-1 basis-55 text-center">
+                                    <button
+                                        onClick={() => handleProject("Fournisseur")}
+                                        className={`inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8 ${
+                                            showCard === "Fournisseur"
+                                                ? "activeClasses bg-primary"
+                                                : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary"
+                                        }`}
+                                    >
+                                        Fournisseur
+                                    </button>
+                                    <div>
+                                        <button type="button" onClick={() => handleProject("Fournisseur")}
+                                                className={`${
+                                                    showCard === "fournisseur"
+                                                        ? "activeClasses bg-primary border-b-4 border-dotted text-color-dotted w-57"
+                                                        : "inactiveClasses text-body-color dark:text-dark-6 hover:bg-primary hover:text-white"
+                                                }`}>
+                                            <img className="" src={imageFournisseur} alt=""/>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap justify-center">
+                        <PortfolioCard
+                            ImageHref="https://i.ibb.co/PT7ghRs/image-06.jpg"
+                            category="Boutique"
+                            title="Gestion de votre boutique"
+                            button="Voir plus"
+                            descriptionService="Solution de gestion de votre boutique.
+Gérer les besoins de votre établissement
+à votre manière."
+                            buttonHref="#"
+                            showCard={showCard}
+                        />
+                        <PortfolioCard
+                            ImageHref="https://i.ibb.co/3FKqS1G/image-03.jpg"
+                            category="Fournisseur"
+                            title="Service fournisseur"
+                            button="Voir plus"
+                            descriptionService="Un service optimisé pour
+Gérer vos fournisseurs"
+                            buttonHref="#"
+                            showCard={showCard}
+                        />
+                        <PortfolioCard
+                            ImageHref="https://i.ibb.co/m6dq2fX/image-04.jpg"
+                            category="Produit"
+                            title="Création de produit"
+                            button="Voir plus"
+                            buttonHref="#"
+                            descriptionService="Créer et gerer vos produits de votre boutique"
+                            showCard={showCard}
+                        />
+                    </div>
+                </div>
+            </section>
+        </>
+    )
+}
+export default ServiceSection
+
+const PortfolioCard = ({
+                           showCard,
+                           category,
+                           ImageHref,
+                           title,
+                           button,
+                           buttonHref,
+                           descriptionService,
+                       }) => {
+    return (
+        <>
+            <div
+                className={`w-full px-4 md:w-1/2 xl:w-2/3 ${
+
+                    showCard === "all" || showCard === category.toLowerCase()
+                        ? "block"
+                        : "hidden"
+                }`}
+            >
+                <div className="relative mb-12">
+                    <div
+                        className="relative z-10 mx-7 -mt-20 rounded-lg dark:bg-dark-2 py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
+                        <h3 className="text-dark dark:text-white mb-5 text-xl font-bold">{title}</h3>
+                        <p className="mb-8">{descriptionService}</p>
+                        <a
+                            href={buttonHref}
+                            className="text-white Primary-Color from-purple-600 to-blue-500 hover:Primary-Color focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-3 text-center me-2"
+                        >
+                            {button}
+                        </a>
+                    </div>
+                </div>
+                <div className="overflow-hidden rounded-[10px]">
+                    <img src={ImageHref} alt="portfolio" className="w-full"/>
+                </div>
+            </div>
+        </>
+    );
+};
